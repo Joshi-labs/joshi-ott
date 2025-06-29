@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Watch Movie - JOSHI OTT</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="s.css" />
+  <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+  <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+
+
+</head>
+<body>
+  <div class="content">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="brand">
+        <h1 class="red">JOSHI</h1>
+        <h1 class="white">OTT</h1>
+      </div>
+      <div class="main-nav">
+        <a href="index.html" class="button-container"><h2>HOME</h2></a>
+        <a href="index.html" class="button-container"><h2>MOVIES</h2></a>
+        <a href="index.html" class="button-container"><h2>TRENDING</h2></a>
+        <a href="index.html" class="button-container"><h2>RELEASES</h2></a>
+        <a href="index.html" class="button-container"><h2>SEARCH</h2></a>
+      </div>
+      <div class="right-nav">
+        <div class="button-container login" onclick="window.location.href='https://vpjoshi.in';">
+          <h2>Portfolio</h2>
+        </div>
+      </div>      
+    </div>
+
+    <!-- Video Player Layout -->
+    <div class="video-section">
+      <!-- Left Side: Video Player -->
+      <div class="video-player">
+        <video id="videoPlayer"
+       class="video-js vjs-default-skin vjs-big-play-centered vjs-show-big-play-button-on-pause"
+       controls preload="auto"></video>
+
+        <h2 class="video-title">Movie Title: Sample Video</h2>
+        <p class="video-description">Description of the movie goes here. Enjoy watching!</p>
+      </div>
+
+      <div class="recommendations">
+        <h3>Recommendations</h3>
+        <div id="recommendation-container"></div>
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    const MovieFile = {
+      "avengers endgame": "avengers.mp4",
+      "deadpool wolverine": "deadpool.mp4",
+      "despicable me 4": "despicableme4.mp4",
+      "family guy - its a trap": "familyguy.mp4",
+      "interstellar": "interstellar.mp4",
+      "kung fu panda - secrets of the masters": "kungfupanda.mp4",
+      "minions - the rise of gru": "minions.mp4",
+      "puss in boots - the last wish": "pussinboots.mp4",
+      "suzume": "suzume.mp4",
+      "the gorge": "gorge.mp4"
+    };
+
+
+    let data = {
+      "Deadpool Wolverine": {
+        background: "Img/deadpool.jpg",
+        display_background: "Img/deadpool.jpg",
+        description: "The iconic duo is back in a hilarious, action-packed adventure filled with chaos and surprises.",
+        duration: "2h 10m"
+      },
+      "Avengers Endgame": {
+        background: "Img/endgame.jpg",
+        display_background: "Img/endgame.jpg",
+        description: "The Avengers reunite for one final stand against Thanos in a battle to save the universe.",
+        duration: "3h 2m"
+      },
+      "Despicable Me 4": {
+        background: "Img/gru.jpg",
+        display_background: "Img/gru.jpg",
+        description: "Gru and his mischievous minions return, facing hilarious challenges while embracing family life.",
+        duration: "1h 35m"
+      },
+      "Family Guy - Its A Trap": {
+        background: "Img/family_guy.jpg",
+        display_background: "Img/family_guy.jpg",
+        description: "Join the Griffin family in this hilarious, twisted Star Wars parody that reimagines Return of the Jedi.",
+        duration: "45m"
+      },
+      "Interstellar": {
+        background: "Img/inter.jpg",
+        display_background: "Img/inter.jpg",
+        description: "An emotional space odyssey that follows a team of astronauts searching for a new home for humanity.",
+        duration: "2h 49m"
+      },
+      "Kung Fu Panda - Secrets Of The Masters": {
+        background: "Img/panda.jpg",
+        display_background: "Img/panda.jpg",
+        description: "Witness the legendary kung fu masters' origins and discover their incredible stories of courage.",
+        duration: "1h 30m"
+      },
+      "Minions - The Rise Of Gru": {
+        background: "Img/minions.jpg",
+        display_background: "Img/minions.jpg",
+        description: "Join the minions on a chaotic and hilarious quest as they help young Gru become the world's greatest villain.",
+        duration: "1h 27m"
+      },
+      "Puss In Boots - The Last Wish": {
+        background: "Img/puss.jpg",
+        display_background: "Img/puss.jpg",
+        description: "Puss sets out on a daring quest to find the mythical Last Wish, facing thrilling adventures along the way.",
+        duration: "1h 40m"
+      },
+      "Suzume": {
+        background: "Img/suzume.jpg",
+        display_background: "Img/suzume.jpg",
+        description: "A breathtaking anime tale about a girl's mystical journey to close mysterious doors causing chaos across Japan.",
+        duration: "2h 1m"
+      },
+      "The Gorge": {
+        background: "Img/the_gorge.jpg",
+        display_background: "Img/the_gorge.jpg",
+        description: "A gripping survival thriller set in the wilderness, where dark secrets unravel as survival instincts clash.",
+        duration: "1h 55m"
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieKey = urlParams.get("movie")?.toLowerCase();
+    const file = MovieFile[movieKey];
+
+    const player = videojs('videoPlayer', {
+      controls: true, autoplay: true, preload: 'auto', responsive: true,
+    });
+
+    function setVideo(name) {
+      player.src({ src: `http://40.192.80.238:8000/video/${name}`, type: 'video/mp4' });
+      player.play();
+    }
+
+    if (file) {
+      setVideo(file);
+    } else {
+      console.error("Movie not found:", movieKey);
+    }
+
+    function generateRecommendations(data) {
+      const container = document.getElementById('recommendation-container');
+      container.innerHTML = ''; // Clear previous recommendations
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentMovie = urlParams.get('movie');
+
+      const formattedMovie = Object.keys(data).find(key => key.toLowerCase() === currentMovie?.toLowerCase());
+
+      // Convert to an array, filter out the current movie, and shuffle using Fisher-Yates algorithm
+      const shuffledMovies = Object.entries(data)
+        .filter(([key]) => key !== formattedMovie)
+        .sort(() => Math.random() - 0.5);
+
+      // Display up to 10 random recommendations
+      shuffledMovies.slice(0, 9).forEach(([key, movie]) => {
+        const recommendationDiv = document.createElement('div');
+        recommendationDiv.classList.add('recommendation');
+        recommendationDiv.onclick = () => {
+          window.location.href = `?movie=${encodeURIComponent(key.toLowerCase())}`;
+        };
+
+        recommendationDiv.innerHTML = `
+          <img src="${movie.background}" alt="${key}" />
+          <div class="recommendation-info">
+            <h4>${key}</h4>
+            <p>${movie.duration}</p>
+          </div>
+        `;
+
+        container.appendChild(recommendationDiv);
+      });
+    }
+
+    // Call the function
+    generateRecommendations(data);
+
+
+
+
+
+
+
+  </script>
+  <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+</body>
+</html>

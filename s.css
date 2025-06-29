@@ -1,0 +1,144 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body and Content Styling */
+  body {
+    background-color: #181818;
+    color: #fff;
+  }
+  
+  .content {
+    width: 100%;
+    padding-top: 70px;
+  }
+  
+  /* Header Section */
+  .header {
+    background-color: #202020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .red {
+    color: #e50914;
+  }
+  
+  .white {
+    color: #fff;
+  }
+  
+  .main-nav a, .login h2 {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .main-nav a:hover, .login:hover h2 {
+    color: #e50914;
+  }
+  
+  .right-nav .login {
+    background-color: #e50914;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Video Section Layout */
+  .video-section {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+  }
+  
+  /* Video Player */
+  .video-player {
+    flex: 2.5;
+    background-color: #202020;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  iframe {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    height: 65vh;
+    outline: none;
+  }
+  
+  .video-title {
+    margin-top: 15px;
+    font-size: 1.8rem;
+  }
+  
+  .video-description {
+    margin-top: 10px;
+    color: #bbb;
+  }
+  
+  /* Recommendations Section */
+  .recommendations {
+    flex: 1;
+    background-color: #202020;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 130px);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  .recommendations::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .recommendations h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  .recommendation {
+    display: flex;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .recommendation img {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .recommendation-info {
+    margin-left: 15px;
+  }
+  
+  .recommendation-info h4 {
+    font-size: 1.1rem;
+  }
+  
+  .recommendation-info p {
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+  
