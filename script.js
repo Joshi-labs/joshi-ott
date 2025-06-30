@@ -330,7 +330,7 @@ const AddCards = () => {
 
             // Add event listener
             button1.addEventListener("click", function () {
-                window.location.href = `watch/index.html?movie=${encodeURIComponent(chosen_card.title.toLowerCase())}`;
+                window.location.href = `watch?movie=${encodeURIComponent(chosen_card.title.toLowerCase())}`;
             });
           
             let button2 = document.createElement("div");
