@@ -132,9 +132,12 @@
       }
     };
 
+window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     const movieKey = urlParams.get("movie")?.toLowerCase();
     const file = MovieFile[movieKey];
+    const formattedMovie = Object.keys(data).find(key => key.toLowerCase() === movieKey?.toLowerCase());
+
 
     const player = videojs('videoPlayer', {
       controls: true, autoplay: true, preload: 'auto', responsive: true,
@@ -147,10 +150,16 @@
 
     if (file) {
       setVideo(file);
+      document.querySelector('.video-title').innerText = `${formattedMovie}`;
+      document.querySelector('.video-description').innerText = data[formattedMovie].description;
     } else {
-      console.error("Movie not found:", movieKey);
+      document.querySelector('.video-title').innerText = `Movie Not Found`;
+      document.querySelector('.video-description').innerText = "You have entered Wrong Movie Name.";
     }
 
+    };
+
+    
     function generateRecommendations(data) {
       const container = document.getElementById('recommendation-container');
       container.innerHTML = ''; // Clear previous recommendations
