@@ -211,7 +211,7 @@ a {
 /* When height > width (portrait mode) */
 @media screen and (orientation: portrait) {
     .top {
-        background-image: url("Img/gru_head_m.png");
+        background-image: url("Img/gru_head_m.jpg");
     }
 }
 
