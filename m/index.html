@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Streaming Service Landing Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles.css" />
+    
+
+  </head>
+  <body onload="AddCarouselButtons(); CheckSizeAttributes(); AddCards(); MakeJumbotron(); CheckCards(); ResizeHeader();" onscroll="ScrollFunction();" onresize="CheckSizeAttributes(); CheckCards(); MakeJumbotron(); ResizeHeader();">
+    <div class="content">
+        <div class="header">
+            <div class="brand">
+                <h1 class="red">JOSHI</h1>
+                <h1 class="white">OTT</h1>
+            </div>
+            <div class="main-nav">
+                <a href="#" class="button-container">
+                    <h2>HOME</h2>
+                </a>
+                <a onclick="SmoothScroll('movies');" class="button-container">
+                    <h2>MOVIES</h2>
+                </a>
+                <a onclick="SmoothScroll('trending');" class="button-container">
+                    <h2>TRENDING</h2>
+                </a>
+                <a onclick="SmoothScroll('releases');" class="button-container">
+                    <h2>RELEASES</h2>
+                </a>
+                <a onclick="SmoothScroll('search');" class="button-container">
+                    <h2>SEARCH</h2>
+                </a>
+            </div>
+            <div class="right-nav">
+                <div class="button-container login" onclick="window.location.href='https://vpjoshi.in';">
+                  <h2>Portfolio</h2>
+                </div>
+            </div> 
+        </div>
+        <div class="top">
+            <div class="image-container">
+            </div>
+        </div>
+        <div class="mid">
+            <div class="content-area" id="trending">
+                <h2 class="content-title">TRENDING</h2>
+                <div class="card-carousel">
+
+                </div>
+            </div>
+            <div class="content-area" id="releases">
+                <h2 class="content-title">NEW RELEASES</h2>
+                <div class="card-carousel">
+
+                </div>
+            </div>
+            <div class="search-area" id="search">
+                <div class="search-area-content">
+                    <h2>Can't Find Anything You Like?</h2>
+                    <p>Search for thousands of unique movies from our growing database...</p>
+                    <div class="input-area">
+                        <input type="text" placeholder="Search..." />
+                        <svg fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="content-area" id="movies">
+                <h2 class="content-title">ALL</h2>
+                <div class="card-carousel">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="watch-later-modal">
+        <h3>Added <a href="#" class="movie"></a> to your <a href="#" class="playlist">WATCH LATER</a> playlist!</h3>
+        <div class="side-buttons">
+            <svg fill="currentColor" viewBox="0 0 16 16" onclick="alert('Removed item from the Watch Later playlist'); ToggleWatchLater('', false);">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+            </svg>
+            <svg fill="currentColor" viewBox="0 0 16 16" onclick="ToggleWatchLater('', false);">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
